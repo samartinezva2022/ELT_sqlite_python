@@ -2,18 +2,18 @@
 #Esta es una ETL de sqlite y python
 
 #Importamos los paquetes a usar
-import pandas as pd
-import json
-import requests
-from pandas import json_normalize
+    import pandas as pd
+    import json
+    import requests
+    from pandas import json_normalize
 
 #Creación de conexión inicial con la API
 
-res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-01')
-serie = json.loads(res._content)
-dx = json_normalize(serie)
+    res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-01')
+    serie = json.loads(res._content)
+    dx = json_normalize(serie)
 
-#Creación de bucle para absorber los días restantes del mes de la API
+    #Creación de bucle para absorber los días restantes del mes de la API
 
 dia = range(2,32) #toma todos los días del mes
 for n in dia:
