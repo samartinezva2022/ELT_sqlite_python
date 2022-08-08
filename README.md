@@ -13,23 +13,23 @@
     serie = json.loads(res._content)
     dx = json_normalize(serie)
 
-    #Creación de bucle para absorber los días restantes del mes de la API
+#Creación de bucle para absorber los días restantes del mes de la API
 
-dia = range(2,32) #toma todos los días del mes
-for n in dia:
-    
+    dia = range(2,32) #toma todos los días del mes
+    for n in dia:
 
-    #res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-30')# Aquí tegno que hacer un cilco for del 1 al 30
-    if len(str(n))==1:
-        res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-'+'0'+str(n))
-        print('http://api.tvmaze.com/schedule/web?date=2020-12-'+'0'+str(n))
-    else:
-        res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-'+str(n))
-        print('http://api.tvmaze.com/schedule/web?date=2020-12-'+str(n))
 
-    serie = json.loads(res._content) 
-    df = json_normalize(serie)
-    dx = dx.append(df,ignore_index=False)
+        #res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-30')# Aquí tegno que hacer un cilco for del 1 al 30
+        if len(str(n))==1:
+            res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-'+'0'+str(n))
+            print('http://api.tvmaze.com/schedule/web?date=2020-12-'+'0'+str(n))
+        else:
+            res = requests.get('http://api.tvmaze.com/schedule/web?date=2020-12-'+str(n))
+            print('http://api.tvmaze.com/schedule/web?date=2020-12-'+str(n))
+
+        serie = json.loads(res._content) 
+        df = json_normalize(serie)
+        dx = dx.append(df,ignore_index=False)
     
 #Se renombran las columnas del dataframe resultante para eviar problemas a la hora del cargue en la db
 
