@@ -105,3 +105,5 @@
 
 #Se crea una tabla y se depositan el dataframe resultante.
     dx.to_sql("Serie_dataset",conn,if_exists="replace")
+    
+#Visualización: https://app.powerbi.com/view?r=eyJrIjoiNTQzMTRlODYtMDk1NC00NmM3LWE3YzUtNzZkMmZkNjI1MDA3IiwidCI6IjU3N2ZjMWQ4LTA5MjItNDU4ZS04N2JmLWVjNGY0NTVlYjYwMCIsImMiOjR9 
